@@ -1,0 +1,25 @@
+{
+  "name": "playlist-switcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "npx postcss global.css -o ./src/local.css",
+    "start": "npx browser-sync src/ -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "*",
+    "fastify": "^3.14.1",
+    "fastify-cors": "^5.2.0",
+    "node-fetch": "^2.6.1",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.0.4"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.14"
+  }
+}

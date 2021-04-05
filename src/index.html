@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>playlist</title>
+    <link rel="stylesheet" href="local.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body class="w-screen h-screen">
+    <div id="app" class="flex flex-col items-center">
+        <p class="header text-8xl font-bold m-5">playlist thing</p>
+
+        <input v-on:keyup.enter="getSongs" v-model="url" type="text" class="text-6xl rounded ring-1 focus:ring-2 text-center mb-3">
+        <ul v-if="songs" class="song-holder w-1/2">
+            <li v-for="song in songs" class="song-listing text-3xl border border-solid border black rounded p-4">{{song.name}} - {{song.artist}}</li>
+        </ul>
+    </div>
+    <script src="index.js"></script>
+
+</body>
+</html>
