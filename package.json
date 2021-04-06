@@ -4,10 +4,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview",
-    "build:css": "npx postcss global.css -o ./src/local.css"
+    "serve": "vite preview"
   },
   "dependencies": {
+    "cheerio": "*",
+    "fastify": "^3.14.1",
+    "fastify-cors": "^5.2.0",
+    "node-fetch": "^2.6.1",
     "postcss-cli": "^8.3.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
