@@ -4,5 +4,5 @@ currently only displays tracks and artists of the playlist.
 
 # setup
 * in the root of the project start server by running `node server.js`
-* run `npm start`
+* run `npm run dev` in another window
 * paste in the url of any apple music playlist
