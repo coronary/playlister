@@ -11,8 +11,8 @@ function getSongs(url) {
         let x = $('.song-name-wrapper')
         let songs = []
         x.each((i, el) => {
-            const name = $(el).children().first().text().trim()
-            const artist = $(el).children().last().text().trim().replace(/\s{2,}/g," ")
+            const name = $(el).children().first().text().replace(/\s{2,}|\n/g," ").trim()
+            const artist = $(el).children().last().text().replace(/\s{2,}|\n/g," ").trim()
             songs.push({name, artist})
         })
         return songs
