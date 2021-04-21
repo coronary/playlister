@@ -1,5 +1,6 @@
 import React, {  useState } from 'react'
 import logo from './logo.svg'
+import SongListing from './components/SongListing'
 import './App.css'
 
 function App() {
@@ -26,10 +27,9 @@ function App() {
       </div>
   )
 }
-function SongListing(props) {
-  return (
-      <li className="song-listing text-3xl border border-solid border-black rounded p-4 m-2">{props.name} by {props.artist}</li>
-  )
+
+function test() {
+  console.log(process.env.REACT_APP_TEST);
 }
 
 export default App
