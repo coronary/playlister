@@ -8,11 +8,11 @@ function getSongs(url) {
     .then(res => res.text())
     .then(data => {
         const $ = cheerio.load(data)
-        let x = $('.song-name-wrapper')
+        let x = $('.songs-list-row')
         let songs = []
         x.each((i, el) => {
-            const name = $(el).children().first().text().replace(/\s{2,}|\n/g," ").trim()
-            const artist = $(el).children().last().text().replace(/\s{2,}|\n/g," ").trim()
+            const name = $(el).find('.songs-list-row__song-name').text().replace(/\s{2,}|\n/g," ").trim()
+            const artist = $(el).find('.songs-list__col--artist .songs-list__song-link-wrapper').text().replace(/\s{2,}|\n/g," ").trim()
             songs.push({name, artist})
         })
         return songs
