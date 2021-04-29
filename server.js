@@ -1,6 +1,7 @@
 const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 
+const regex = /\s{2,}|\n/g
 const test_url ='https://music.apple.com/us/playlist/oldies-feels/pl.u-KVXBDYWC5r59Ya'
 const other = 'https://music.apple.com/us/playlist/todays-hits/pl.f4d106fed2bd41149aaacabb233eb5eb'
 function getSongs(url) {
@@ -9,13 +10,13 @@ function getSongs(url) {
     .then(data => {
         const $ = cheerio.load(data)
         let x = $('.songs-list-row')
-        let songs = []
+        let output = {title:$('.typography-large-title-semibold').text(), tracks:[]}
         x.each((i, el) => {
-            const name = $(el).find('.songs-list-row__song-name').text().replace(/\s{2,}|\n/g," ").trim()
-            const artist = $(el).find('.songs-list__col--artist .songs-list__song-link-wrapper').text().replace(/\s{2,}|\n/g," ").trim()
-            songs.push({name, artist})
+            const name = $(el).find('.songs-list-row__song-name').text().replace(regex, " ").trim()
+            const artist = $(el).find('.songs-list__col--artist .songs-list__song-link-wrapper').text().replace(regex, " ").trim()
+            output.tracks.push({name, artist})
         })
-        return songs
+        return output
     })
 }
 
